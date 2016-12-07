@@ -27,7 +27,6 @@ var scores = {
         type: "GET",
         url: this.rootUrl + "get",
         success: function(resultScores){
-            console.log(resultScores);
             var resultHtml = "";
             if(resultScores){
               resultHtml += "<ul>";

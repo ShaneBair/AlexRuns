@@ -27,6 +27,11 @@ namespace AlexRuns.Web.Services
 
             }
 
+            if(scores.Count > count)
+            {
+                scores = scores.Take(count).ToList();
+            }
+
             return scores;
         }
 
@@ -34,7 +39,7 @@ namespace AlexRuns.Web.Services
         {
             try
             {
-                if (score != null)
+                if (score != null && !string.IsNullOrWhiteSpace(score.Name))
                 {
                     using (var db = new LiteDatabase("C:/DevPersonal/Games/craftyjs/AlexRunsForever/AlexRuns.Web/App_Data/scores.db"))
                     {
