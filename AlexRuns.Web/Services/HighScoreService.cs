@@ -19,7 +19,7 @@ namespace AlexRuns.Web.Services
                 using (var db = new LiteDatabase("C:/DevPersonal/Games/craftyjs/AlexRunsForever/AlexRuns.Web/App_Data/scores.db"))
                 {
                     var scoresCollection = db.GetCollection<HighScore>("HighScore");
-                    scores = scoresCollection.FindAll().OrderBy(hs => hs.Score).ToList();
+                    scores = scoresCollection.FindAll().OrderByDescending(hs => hs.Score).ToList();
                 }
             }
             catch(Exception ex)
