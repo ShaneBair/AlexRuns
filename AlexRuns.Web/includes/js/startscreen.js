@@ -2,6 +2,8 @@ Crafty.defineScene("StartScreen", function() {
   Crafty.background("#efefef");
   var backgroundManager = Crafty.e("BackgroundManager");
 
+  scores.getScores();
+  
   Crafty.e("2D, DOM, Text, Mouse")
       .attr({ w: 300, h: 20, x: 300, y: 200 })
       .text("Click to start")

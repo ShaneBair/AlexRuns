@@ -36,6 +36,9 @@ Crafty.defineScene("Level1", function() {
           Crafty.storage("HighScore", game.highScore);
         }
         Crafty.unbind("EnterFrame", levelLoop);
+
+        scores.postScore(game.levelScore);
+
         Crafty.enterScene("StartScreen");
       }
   }

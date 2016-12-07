@@ -31,7 +31,6 @@ Crafty.c('LevelBuilder', {
     },
 
     generateNextPiece: function (lastPiece) {
-      console.log('make more');
       Crafty.e('Platform')
         .attr({
           x: lastPiece.x + lastPiece.w + this.getRandomInt(0, this.levelRules.maximumGap),
