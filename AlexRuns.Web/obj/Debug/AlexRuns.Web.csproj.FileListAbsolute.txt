@@ -80,3 +80,5 @@ C:\DevPersonal\Games\craftyjs\AlexRunsForever\AlexRuns.Web\bin\System.Web.Http.W
 C:\DevPersonal\Games\craftyjs\AlexRunsForever\AlexRuns.Web\obj\Debug\AlexRuns.Web.csprojResolveAssemblyReference.cache
 C:\DevPersonal\Games\craftyjs\AlexRunsForever\AlexRuns.Web\obj\Debug\AlexRuns.Web.dll
 C:\DevPersonal\Games\craftyjs\AlexRunsForever\AlexRuns.Web\obj\Debug\AlexRuns.Web.pdb
+C:\DevPersonal\Games\craftyjs\AlexRunsForever\AlexRuns.Web\bin\LiteDB.dll
+C:\DevPersonal\Games\craftyjs\AlexRunsForever\AlexRuns.Web\bin\LiteDB.xml
