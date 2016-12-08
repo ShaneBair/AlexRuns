@@ -4,7 +4,9 @@ Crafty.c('LevelBuilder', {
     levelRules: {
       minimumPieceLength: 100,
       maximumPieceLength: 300,
-      maximumGap: 200,
+      minimumGap: 50,
+      maximumGap: 180,
+      maximumGapUp: 100,
       upHeightVariation: 100,
       downHeightVariation: 200
     },
@@ -31,17 +33,60 @@ Crafty.c('LevelBuilder', {
     },
 
     generateNextPiece: function (lastPiece) {
+      var direction = this.newDirection(),
+          xPos = this.newXPosition(lastPiece, direction),
+          yPos = this.newYPosition(lastPiece, direction),
+          width = this.newWidth(lastPiece);
+
       Crafty.e('Platform')
         .attr({
-          x: lastPiece.x + lastPiece.w + this.getRandomInt(0, this.levelRules.maximumGap),
-          y: lastPiece.y,
-          w: this.getRandomInt(this.levelRules.minimumPieceLength, this.levelRules.maximumPieceLength),
+          x: xPos,
+          y: yPos,
+          w: width,
           h: 5,
           z: 1
         });
     },
 
+    newDirection: function() {
+      return this.getRandomInt(-1, 1);
+    },
+
+    newWidth: function (lastPiece) {
+      return this.getRandomInt(this.levelRules.minimumPieceLength, this.levelRules.maximumPieceLength);
+    },
+
+    newXPosition: function (lastPiece, direction) {
+      var gap = this.getRandomInt(this.levelRules.minimumGap, this.levelRules.maximumGap);
+      if(direction == -1) {
+        gap = this.getRandomInt(this.levelRules.minimumGap, this.levelRules.maximumGapUp);
+      }
+
+      return lastPiece.x + lastPiece.w + gap;
+    },
+
+    newYPosition: function (lastPiece, direction) {
+      var result = lastPiece.y;
+
+      if(direction == -1) {
+          result -= this.getRandomInt(0, this.levelRules.upHeightVariation);
+      }
+      else if(direction == 1) {
+        result += this.getRandomInt(0, this.levelRules.downHeightVariation);
+      }
+
+      // Take in to account screen restraints
+      if(result > game.screenHeight - 15) {
+        result = game.screenHeight - 15;
+      }
+      else if (result < 50) {
+        result = 50;
+      }
+
+      return result;
+    },
+
     getRandomInt: function (min, max) {
-      return Math.random() * (max - min) + min;
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 });
