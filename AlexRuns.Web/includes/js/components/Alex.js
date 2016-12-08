@@ -14,5 +14,13 @@ Crafty.c('Alex', {
         ]);
         this.animate("running", -1);
         this.vx = 200;
+
+        this.bind("CheckLanding", this.checkLanding);
+      },
+
+      checkLanding: function(ground) {
+        if (this.y + this.h > ground.y + this.dy) { // forbid landing, if player's feet are not above ground
+          this.canLand = false;
+        }
       }
 });
