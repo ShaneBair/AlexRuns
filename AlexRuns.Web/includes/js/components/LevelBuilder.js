@@ -5,7 +5,7 @@ Crafty.c('LevelBuilder', {
       minimumPieceLength: 100,
       maximumPieceLength: 300,
       minimumGap: 50,
-      maximumGap: 180,
+      maximumGap: 150,
       maximumGapUp: 100,
       upHeightVariation: 100,
       downHeightVariation: 200
